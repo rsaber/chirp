@@ -1,0 +1,15 @@
+1234qwerasdfzxcv
+
+CHIRP_KEY_MAPPINGS
+
+/*
+These are the keymappings for chirp. They need to be named
+'key_mappings', and be placed in the same directory as the binary.
+
+CHIP-8 keys with keymappings:
+
+123C     1234
+456D --\ qwer
+789G --/ asdf
+A0BF     zxcv
+*/
