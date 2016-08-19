@@ -25,8 +25,6 @@ unsigned int global_scale = 10;
 Chip c;
 uc km[16];
 
-uc screen[WINDOW_HEIGHT][WINDOW_WIDTH];
-
 // Used for redrawing after reshape
 unsigned int display_width = WINDOW_WIDTH;
 unsigned int display_height = WINDOW_HEIGHT;
@@ -115,12 +113,6 @@ void display(SDL_Renderer * r){
 		for(int j=0; j<WINDOW_WIDTH; j++){
 			// Draw a coloured pixel
 			drawMonochromeScaledPixel(r,c->display[(i*64)+j],j,i,global_scale);
-			
-			/*if(c->display[(i*64)+j]) SDL_SetRenderDrawColor(r, 255, 255, 255, 255);
-			else SDL_SetRenderDrawColor(r, 0, 0, 0, 0);
-
-			SDL_SetRenderDrawColor(r, 255, 255, 255, 255);
-			SDL_RenderDrawPoint(r,i,j);*/
 		}
 	}
 }
@@ -242,48 +234,3 @@ void click_key(SDL_KeyboardEvent * key){
 		
 	}
 }
-
-/* Old Version, tried OpenGL and GLUT */
-/*
-void key_down(uc key, int x, int y){
-	if(key == 27) 			exit(0);
-	else if(key == km[0])	c->key[0x1] = 1;
-	else if(key == km[1])	c->key[0x2] = 1;
-	else if(key == km[2])	c->key[0x3] = 1;
-	else if(key == km[3])	c->key[0xC] = 1;
-
-	else if(key == km[4])	c->key[0x4] = 1;
-	else if(key == km[5])	c->key[0x5] = 1;
-	else if(key == km[6])	c->key[0x6] = 1;
-	else if(key == km[7])	c->key[0xD] = 1;
-	else if(key == km[8])	c->key[0x7] = 1;
-	else if(key == km[9])	c->key[0x8] = 1;
-	else if(key == km[10])	c->key[0x9] = 1;
-	else if(key == km[11])	c->key[0xE] = 1;
-	else if(key == km[12])	c->key[0xA] = 1;
-	else if(key == km[13])	c->key[0x0] = 1;
-	else if(key == km[14])	c->key[0xB] = 1;
-	else if(key == km[15])	c->key[0xF] = 1;
-}
-
-void key_up(uc key, int x, int y){
-	if(key == 27)			exit(0);
-	else if(key == km[0])	c->key[0x1] = 0;
-	else if(key == km[1])	c->key[0x2] = 0;
-	else if(key == km[2])	c->key[0x3] = 0;
-	else if(key == km[3])	c->key[0xC] = 0;
-	else if(key == km[4])	c->key[0x4] = 0;
-	else if(key == km[5])	c->key[0x5] = 0;
-	else if(key == km[6])	c->key[0x6] = 0;
-	else if(key == km[7])	c->key[0xD] = 0;
-	else if(key == km[8])	c->key[0x7] = 0;
-	else if(key == km[9])	c->key[0x8] = 0;
-	else if(key == km[10])	c->key[0x9] = 0;
-	else if(key == km[11])	c->key[0xE] = 0;
-	else if(key == km[12])	c->key[0xA] = 0;
-	else if(key == km[13])	c->key[0x0] = 0;
-	else if(key == km[14])	c->key[0xB] = 0;
-	else if(key == km[15])	c->key[0xF] = 0;
-}
-
-*/
